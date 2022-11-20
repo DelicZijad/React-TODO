@@ -1,0 +1,342 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+//primary
+$BrightBlue: hsl(220, 98%, 61%);
+$Background: hsl(192, 100%, 67%),hsl(280, 87%, 65%);
+//light theme colors
+$VeryLightGray: hsl(0, 0%, 98%);
+$VeryLightGrayishBlue: hsl(236, 33%, 92%);
+$LightGrayishBlue1: hsl(233, 11%, 84%);
+$DarkGrayishBlue1: hsl(236, 9%, 61%);
+$VeryDarkGrayishBlue1: hsl(235, 19%, 35%);
+//dark theme colors
+$VeryDarkBlue: hsl(235, 21%, 11%);
+$VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+$LightGrayishBlue2: hsl(234, 39%, 85%);
+$LightGrayishBlue3: hsl(236, 33%, 92%);
+$DarkGrayishBlue2: hsl(234, 11%, 52%);
+$VeryDarkGrayishBlue2: hsl(233, 14%, 35%);
+$VeryDarkGrayishBlue3: hsl(237, 14%, 26%);
+
+@mixin desktop {
+    @media screen and (min-width:1024px) {
+        @content;
+    }
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: max-content;
+font-family: 'Josefin Sans', sans-serif;
+position: relative;
+font-size: 0.875rem;
+@include desktop{
+font-size: 1.125rem;
+}
+}
+button{
+    outline: none;
+    background-color: transparent;
+    display: block;
+    cursor: pointer;
+    font-family:inherit ;
+    font-size: inherit;;
+}
+#root{
+    height: 100%;
+}
+.app{
+    width: 100%;
+    min-height: 100vh;
+  padding-block: 3rem 6rem;
+  
+}
+.appDark{
+    @extend .app;
+    background-color: $VeryDarkBlue;
+}
+.appLight{
+     @extend .app;
+    background-color: $VeryLightGrayishBlue;
+}
+.container{
+    width: 85%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include desktop{
+        width: 50%;
+    }
+}
+.header{
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+ height: 20vh;
+background-image: linear-gradient(to right,$Background);
+background-size: cover;
+ @include desktop{
+    height: 30vh;
+ }
+}
+.headerDark{
+    @extend .header;
+  background-image: url(../src/images/bg-mobile-dark.jpg);
+  @include desktop{
+background-image: url(../src/images/bg-desktop-dark.jpg);
+  }
+}
+.headerLight{
+    @extend .header;
+  background-image: url(../src/images/bg-mobile-light.jpg);
+  @include desktop{
+background-image: url(../src/images/bg-desktop-light.jpg);
+  }
+}
+.todo{
+    position: relative;
+    z-index: 2;
+    &--heading{
+        letter-spacing: 0.5rem;
+        font-size: 2rem;
+        color: white;
+        @include desktop{
+            font-size: 3rem;
+        }
+    }
+    &--mode{
+        cursor: pointer;
+    }
+    &--top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &--input{
+     // padding: 1rem;
+      border-radius: 5px;
+    }
+    &--enter{
+        padding: 1rem;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        font-size: inherit;
+        outline: none;
+        font-family:inherit;
+    }
+    &--check{
+      border: 1px solid; 
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+           font-size: inherit;
+     color: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     @include desktop{
+        height: 30px;
+            width: 30px;
+     }
+ 
+    }
+    &--display{
+        border-radius: 5px;
+    }
+    &--item{
+        padding: 1rem;
+        border-bottom: 1px solid;
+        display: flex;
+        align-items: center;
+        gap:0.5rem;
+        border-radius:inherit;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        @include desktop{
+            gap: 1rem;
+        }
+    }
+    &--cross{
+        border: none;
+        font-size: 1.25rem;
+       margin-left: auto;
+        @include desktop{
+            font-size: 1.5rem;
+        }
+    }
+    &--categories{
+        position: relative;
+        padding: 1rem;
+        font-size: 0.75rem;
+display: flex;
+justify-content: space-between;
+border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+@include desktop{
+    font-size: 1rem;
+}
+    }
+    &--options{
+        position: absolute;
+        bottom: -4.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 1rem;
+        width: 100%;
+        border-radius: 5px;
+        @include desktop{
+            position: static;
+            background-color: transparent;
+            padding: 0;
+            transform: translateX(0);
+            width: auto;
+            border-radius: 0;
+        }
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        font-weight: 700;
+      
+    }
+    &--option{
+        border: none;
+        color: inherit;
+      font-weight: inherit
+    }
+}
+.todoDark{
+    @extend .todo;
+
+    &--heading{
+        @extend .todo--heading;
+    }
+    &--mode{
+        @extend .todo--mode;
+    }
+    &--top{
+        @extend .todo--top;
+    }
+    &--input{
+        @extend .todo--input;
+        background-color: $VeryDarkDesaturatedBlue;
+    }
+    &--enter{
+        @extend .todo--enter;
+color: $LightGrayishBlue2;
+    }
+    &--check{
+        @extend .todo--check;
+   border-color: $DarkGrayishBlue2;
+ &:hover{
+   border-color: $LightGrayishBlue2;
+ }
+    }
+    
+    &--item{
+        @extend .todo--item;
+    background-color: $VeryDarkDesaturatedBlue;
+    color: $LightGrayishBlue3;
+    border-color: $DarkGrayishBlue1;
+    }
+    &--display{
+        @extend .todo--display;
+    }
+    &--cross{
+        @extend .todo--cross;
+        color: $VeryDarkGrayishBlue2;
+    }
+    &--categories{
+        @extend .todo--categories;
+    background-color: $VeryDarkDesaturatedBlue;
+    color: $VeryDarkGrayishBlue1;
+    }
+    &--options{
+        @extend .todo--options;
+            background-color: $VeryDarkDesaturatedBlue;
+    }
+    &--option{
+        @extend .todo--option;
+    }
+}
+.todoLight{
+    @extend .todo;
+    color:$VeryDarkGrayishBlue1;
+    &--heading{
+        @extend .todo--heading;
+    }
+    &--mode{
+        @extend .todo--mode;
+    }
+    &--top{
+        @extend .todo--top;
+    }
+    &--input{
+        @extend .todo--input;
+        background-color: $VeryLightGray;
+    }
+    &--enter{
+        @extend .todo--enter;
+color: $VeryDarkGrayishBlue1;
+    }
+    &--check{
+        @extend .todo--check;
+    border-color: $DarkGrayishBlue1;
+    &:hover{
+        border-color: $VeryDarkGrayishBlue1;
+    }
+    }
+
+    &--item{
+        @extend .todo--item;
+    background-color: $VeryLightGray;
+    color: $VeryDarkGrayishBlue1;
+    }
+    &--display{
+        @extend .todo--display;
+    }
+    &--cross{
+        @extend .todo--cross;
+        color: $DarkGrayishBlue1;
+    }
+    &--categories{
+        @extend .todo--categories;
+    background-color: $VeryLightGray;
+color: $DarkGrayishBlue1;
+    }
+    &--options{
+        @extend .todo--options;
+            background-color: $VeryLightGray;
+    }
+    &--option{
+        @extend .todo--option;
+    }
+}
+
+.hide{
+    display: none;
+}
+.clicked{
+    background-image: linear-gradient(to bottom,$Background);
+}
+.completedDark{
+    text-decoration: line-through;
+    color: $DarkGrayishBlue1;
+}
+.completedLight{
+    text-decoration: line-through;
+    color: $DarkGrayishBlue1;
+}
+.chosen{
+    color: $BrightBlue;
+}
+.invisible{
+    visibility: hidden;
+}
