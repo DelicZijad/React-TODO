@@ -211,6 +211,10 @@ border-bottom-left-radius: inherit;
         color: inherit;
       font-weight: inherit
     }
+    &--txt{
+        max-width: 75%;
+        word-break: break-all
+    }
 }
 .todoDark{
     @extend .todo;
@@ -265,6 +269,9 @@ color: $LightGrayishBlue2;
     &--option{
         @extend .todo--option;
     }
+    &--txt{
+        @extend .todo--txt
+    }
 }
 .todoLight{
     @extend .todo;
@@ -318,6 +325,9 @@ color: $DarkGrayishBlue1;
     &--option{
         @extend .todo--option;
     }
+          &--txt {
+              @extend .todo--txt
+          }
 }
 
 .hide{
