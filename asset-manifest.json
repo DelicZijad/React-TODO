@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react-todo/static/css/main.13e56386.css",
+    "main.js": "/react-todo/static/js/main.9049db09.js",
+    "static/media/bg-desktop-light.jpg": "/react-todo/static/media/bg-desktop-light.3508d620efd5a52bb4ce.jpg",
+    "static/media/bg-desktop-dark.jpg": "/react-todo/static/media/bg-desktop-dark.73e47dbb723ebc772ef0.jpg",
+    "index.html": "/react-todo/index.html",
+    "static/media/icon-sun.svg": "/react-todo/static/media/icon-sun.910b1f9a23741afc341e95653a51f14f.svg",
+    "static/media/icon-moon.svg": "/react-todo/static/media/icon-moon.6c03114b495d05f4380b3c544d9afe2a.svg",
+    "main.13e56386.css.map": "/react-todo/static/css/main.13e56386.css.map",
+    "main.9049db09.js.map": "/react-todo/static/js/main.9049db09.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13e56386.css",
+    "static/js/main.9049db09.js"
+  ]
+}
